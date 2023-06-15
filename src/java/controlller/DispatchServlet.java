@@ -32,6 +32,11 @@ public class DispatchServlet extends HttpServlet {
     private static final String CREATE_DAY_LEAVE_CONTROLLER = "CreateDayLeaveServlet";
     private static final String ACCOUNT_LIST = "AccountListServlet";
     private static final String ACCOUNT_DETAIL = "AccountDetailServlet";
+    
+    private static final String TIMEKEEPING_CONTROLLER = "TimekeepingServlet";
+    private static final String SEARCH_TIMEKEEPING_CONTROLLER = "SearchDateTimekeepingServlet";
+    private static final String TIMEKEEPING_DETAIL_CONTROLLER = "TimekeepingDetailServlet";
+    private static final String TIMEKEEPING_DETAIL_2_CONTROLLER = "TimekeepingDetail";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -89,6 +94,19 @@ public class DispatchServlet extends HttpServlet {
                     break;
                 case "AccDetail":
                     url = ACCOUNT_DETAIL;
+                    break;
+                    
+                 case "Timekeeping":
+                    url = TIMEKEEPING_CONTROLLER;
+                    break;
+                case "SearchMonth":
+                    url = SEARCH_TIMEKEEPING_CONTROLLER;
+                    break;
+                case "timekeepingDetail":
+                    url = TIMEKEEPING_DETAIL_CONTROLLER;
+                    break;
+                case "timekeepingDetail2":
+                    url = TIMEKEEPING_DETAIL_2_CONTROLLER;
                     break;
             }
         } catch (Exception e) {
