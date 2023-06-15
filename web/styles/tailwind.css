@@ -1,0 +1,13 @@
+.salary-detail__head th {
+    position: relative;
+}
+
+.salary-detail__head>th::after {
+    content: "";
+    width: 1px;
+    height: 23px;
+
+    background-color: #000;
+    position: relative;
+    display: inline-block;
+}
