@@ -84,6 +84,34 @@
         <servlet-name>UserInfoServlet</servlet-name>
         <servlet-class>controlller.UserInfoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReportServlet</servlet-name>
+        <servlet-class>controlller.ReportServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewReportServlet</servlet-name>
+        <servlet-class>controlller.ViewReportServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PendingApplicantServlet</servlet-name>
+        <servlet-class>controlller.PendingApplicantServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MainController</servlet-name>
+        <servlet-class>controlller.MainController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PassApplicantServlet</servlet-name>
+        <servlet-class>controlller.PassApplicantServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RejectApplicantServlet</servlet-name>
+        <servlet-class>controlller.RejectApplicantServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ApplyApplicantServlet</servlet-name>
+        <servlet-class>controlller.ApplyApplicantServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DispatchServlet</servlet-name>
         <url-pattern>/DispatchServlet</url-pattern>
@@ -167,6 +195,34 @@
     <servlet-mapping>
         <servlet-name>UserInfoServlet</servlet-name>
         <url-pattern>/UserInfoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportServlet</servlet-name>
+        <url-pattern>/ReportServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewReportServlet</servlet-name>
+        <url-pattern>/ViewReportServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PendingApplicantServlet</servlet-name>
+        <url-pattern>/PendingApplicantServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MainController</servlet-name>
+        <url-pattern>/MainController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PassApplicantServlet</servlet-name>
+        <url-pattern>/PassApplicantServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RejectApplicantServlet</servlet-name>
+        <url-pattern>/RejectApplicantServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ApplyApplicantServlet</servlet-name>
+        <url-pattern>/ApplyApplicantServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

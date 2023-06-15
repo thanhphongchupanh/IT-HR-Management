@@ -39,6 +39,8 @@ public class DispatchServlet extends HttpServlet {
     private static final String REJECT_DAY_LEAVE_CONTROLLER = "UpdateRejectServlet";
     private static final String SENT_DAY_LEAVE_CONTROLLER = "SentDayLeaveServlet";
     private static final String USER_INFO_CONTROLLER = "UserInfoServlet";
+    private static final String REPORT_CONTROLLER = "ReportServlet";
+    private static final String REPORT_DETAIL_CONTROLLER = "ViewReportServlet";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -117,6 +119,12 @@ public class DispatchServlet extends HttpServlet {
                     break;
                 case "UserInfo":
                     url = USER_INFO_CONTROLLER;
+                    break;
+                case "Report":
+                    url = REPORT_CONTROLLER;
+                    break;
+                case "ViewReport":
+                    url = REPORT_DETAIL_CONTROLLER;
                     break;
             }
         } catch (Exception e) {
