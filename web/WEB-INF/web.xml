@@ -52,6 +52,38 @@
         <servlet-name>OvertimeDetailServlet</servlet-name>
         <servlet-class>controlller.OvertimeDetailServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DropDownServlet</servlet-name>
+        <servlet-class>controlller.DropDownServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DayLeavePendingServlet</servlet-name>
+        <servlet-class>controlller.DayLeavePendingServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateApproveServlet</servlet-name>
+        <servlet-class>controlller.UpdateApproveServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DayLeaveServlet</servlet-name>
+        <servlet-class>controlller.DayLeaveServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DayLeaveRejectServlet</servlet-name>
+        <servlet-class>controlller.DayLeaveRejectServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateRejectServlet</servlet-name>
+        <servlet-class>controlller.UpdateRejectServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SentDayLeaveServlet</servlet-name>
+        <servlet-class>controlller.SentDayLeaveServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserInfoServlet</servlet-name>
+        <servlet-class>controlller.UserInfoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DispatchServlet</servlet-name>
         <url-pattern>/DispatchServlet</url-pattern>
@@ -103,6 +135,38 @@
     <servlet-mapping>
         <servlet-name>OvertimeDetailServlet</servlet-name>
         <url-pattern>/OvertimeDetailServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DropDownServlet</servlet-name>
+        <url-pattern>/DropDownServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DayLeavePendingServlet</servlet-name>
+        <url-pattern>/DayLeavePendingServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateApproveServlet</servlet-name>
+        <url-pattern>/UpdateApproveServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DayLeaveServlet</servlet-name>
+        <url-pattern>/DayLeaveServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DayLeaveRejectServlet</servlet-name>
+        <url-pattern>/DayLeaveRejectServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateRejectServlet</servlet-name>
+        <url-pattern>/UpdateRejectServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SentDayLeaveServlet</servlet-name>
+        <url-pattern>/SentDayLeaveServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserInfoServlet</servlet-name>
+        <url-pattern>/UserInfoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

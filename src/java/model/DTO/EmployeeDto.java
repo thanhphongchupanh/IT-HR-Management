@@ -18,7 +18,7 @@ public class EmployeeDto {
     private Date employee_dob;
     private int employee_phone;
     private Date datejoin;
-    private String employee_contractId;
+    private int employee_contractId;
     private int age;
     private boolean gender;
     private String supervision_id;
@@ -34,8 +34,7 @@ public class EmployeeDto {
     public EmployeeDto() {
     }
 
-    public EmployeeDto(String employee_id, String department_id, String employee_name, Date employee_dob, int employee_phone, Date datejoin, String employee_contractId, int age, boolean gender, String supervision_id, 
-            String employee_email, String employee_address, String employee_leaveDay, String departmentName, String role, String username, String photo, boolean status) {
+    public EmployeeDto(String employee_id, String department_id, String employee_name, Date employee_dob, int employee_phone, Date datejoin, int employee_contractId, int age, boolean gender, String supervision_id, String employee_email, String employee_address, String employee_leaveDay, String departmentName, String role, String username, String photo, boolean status) {
         this.employee_id = employee_id;
         this.department_id = department_id;
         this.employee_name = employee_name;
@@ -104,11 +103,11 @@ public class EmployeeDto {
         this.datejoin = datejoin;
     }
 
-    public String getEmployee_contractId() {
+    public int getEmployee_contractId() {
         return employee_contractId;
     }
 
-    public void setEmployee_contractId(String employee_contractId) {
+    public void setEmployee_contractId(int employee_contractId) {
         this.employee_contractId = employee_contractId;
     }
 
@@ -199,5 +198,6 @@ public class EmployeeDto {
     public void setStatus(boolean status) {
         this.status = status;
     }
+
     
 }
