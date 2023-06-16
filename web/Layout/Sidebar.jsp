@@ -274,8 +274,6 @@
                         </svg>
                         <span class="ml-3">Show Overtime List</span>
                     </a>
-<<<<<<< HEAD
-=======
                     <li class="nav-item">
                     <a href="DispatchServlet?btnAction=Timekeeping"
                        class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 active:bg-gray-100">
@@ -288,7 +286,6 @@
                         </svg>
                         <span class="ml-3">Show TimeKeeping List</span>
                     </a>
->>>>>>> quan
                 </c:if>
 
 
