@@ -40,7 +40,8 @@ public class DispatchServlet extends HttpServlet {
     private static final String SENT_DAY_LEAVE_CONTROLLER = "SentDayLeaveServlet";
     private static final String USER_INFO_CONTROLLER = "UserInfoServlet";
     private static final String REPORT_CONTROLLER = "ReportServlet";
-    private static final String REPORT_DETAIL_CONTROLLER = "ViewReportServlet";   
+
+    private static final String REPORT_DETAIL_CONTROLLER = "ViewReportServlet";
     private static final String TIMEKEEPING_CONTROLLER = "TimekeepingServlet";
     private static final String SEARCH_TIMEKEEPING_CONTROLLER = "SearchDateTimekeepingServlet";
     private static final String TIMEKEEPING_DETAIL_CONTROLLER = "TimekeepingDetailServlet";
@@ -51,6 +52,7 @@ public class DispatchServlet extends HttpServlet {
     private static final String SEARCH_OVERTIME = "SearchDateOvertime";
     private static final String CONTRACT_LIST = "ContractListServlet";
     private static final String CONTRACT_DETAIL = "ContractDetailServlet";
+     private static final String UPDATE_USER_INFO_CONTROLLER = "UpdateUserInfoServlet";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -82,8 +84,11 @@ public class DispatchServlet extends HttpServlet {
                 case "staffDetail":
                     url = STAFF_DETAIL_CONTROLLER;
                     break;
-//                case "AccountList":
-//                    url = ACCOUNT_LIST_PAGE;
+                case "Staff":
+                    url = "StaffListController";
+                    break;
+//                case "ShowOverTimeList":
+//                    url = "";
 //                    break;
                 case "forgot":
                     url = FORGOT_CONTROLLER;
@@ -97,9 +102,9 @@ public class DispatchServlet extends HttpServlet {
                 case "Delete_StaffDetail":
                     url = DELETE_STAFF_DETAIL_CONTROLLER;
                     break;
-                case "Save":
-                    url = UPDATE_STAFF_DETAIL_CONTROLLER;
-                    break;
+//                case "Save":
+//                    url = UPDATE_STAFF_DETAIL_CONTROLLER;
+//                    break;
                 case "CreateApplication":
                     url = DROP_DOWN_CONTROLLER;    //khi vào createapplication.jsp thì dropdown list nv của report sẽ xuất hiện
                     break;
@@ -134,8 +139,9 @@ public class DispatchServlet extends HttpServlet {
                     url = REPORT_CONTROLLER;
                     break;
                 case "ViewReport":
-                    url = REPORT_DETAIL_CONTROLLER;         
-                 case "Timekeeping":
+                    url = REPORT_DETAIL_CONTROLLER;
+                    break;
+                case "Timekeeping":
                     url = TIMEKEEPING_CONTROLLER;
                     break;
                 case "SearchMonth":
@@ -170,6 +176,15 @@ public class DispatchServlet extends HttpServlet {
                     
                 case "ContractDetail":
                     url = CONTRACT_DETAIL;
+                case "Save":
+                    url = UPDATE_USER_INFO_CONTROLLER;
+                    break;
+
+                case "Salary":
+                    url = "SalaryListServlet";
+                    break;
+                case "SalaryDetail":
+                    url = "SalaryDetailServlet";
                     break;
             }
         } catch (Exception e) {

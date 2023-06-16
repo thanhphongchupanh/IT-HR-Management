@@ -274,9 +274,9 @@
                         </svg>
                         <span class="ml-3">Show Overtime List</span>
                     </a>
-                    
-                <li class="nav-item">
-                    <a href="DispatchServlet?btnAction=ShowContractList"
+
+                    <li class="nav-item">
+                    <a href="DispatchServlet?btnAction=Timekeeping"
                        class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 active:bg-gray-100">
                         <svg class="w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white"
                              fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
@@ -285,7 +285,7 @@
                                   d="M12.577 4.878a.75.75 0 01.919-.53l4.78 1.281a.75.75 0 01.531.919l-1.281 4.78a.75.75 0 01-1.449-.387l.81-3.022a19.407 19.407 0 00-5.594 5.203.75.75 0 01-1.139.093L7 10.06l-4.72 4.72a.75.75 0 01-1.06-1.061l5.25-5.25a.75.75 0 011.06 0l3.074 3.073a20.923 20.923 0 015.545-4.931l-3.042-.815a.75.75 0 01-.53-.919z">
                             </path>
                         </svg>
-                        <span class="ml-3">Show Contract List</span>
+                        <span class="ml-3">Show TimeKeeping List</span>
                     </a>
                 </c:if>
 
@@ -411,52 +411,7 @@
                     
                     <!--role HR_SD-->
                     
-                    <c:if test="${user != null and user.roleName == 'HR_SD'}">
-                        <li class="nav-item ">
-                            <a href="DispatchServlet?btnAction=Staff"
-                                class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 active:bg-gray-100">
-                                <svg class="w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white"
-                                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true">
-                                    <path
-                                        d="M10 9a3 3 0 100-6 3 3 0 000 6zM6 8a2 2 0 11-4 0 2 2 0 014 0zM1.49 15.326a.78.78 0 01-.358-.442 3 3 0 014.308-3.516 6.484 6.484 0 00-1.905 3.959c-.023.222-.014.442.025.654a4.97 4.97 0 01-2.07-.655zM16.44 15.98a4.97 4.97 0 002.07-.654.78.78 0 00.357-.442 3 3 0 00-4.308-3.517 6.484 6.484 0 011.907 3.96 2.32 2.32 0 01-.026.654zM18 8a2 2 0 11-4 0 2 2 0 014 0zM5.304 16.19a.844.844 0 01-.277-.71 5 5 0 019.947 0 .843.843 0 01-.277.71A6.975 6.975 0 0110 18a6.974 6.974 0 01-4.696-1.81z">
-                                    </path>
-                                </svg>
-                                <span class="ml-3">Staff list</span>
-                            </a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a href="DispatchServlet?btnAction=ShowAccountList"
-                                class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 active:bg-gray-100">
-                                <svg class="w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white"
-                                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true">
-                                    <path clip-rule="evenodd" fill-rule="evenodd"
-                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-5.5-2.5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zM10 12a5.99 5.99 0 00-4.793 2.39A6.483 6.483 0 0010 16.5a6.483 6.483 0 004.793-2.11A5.99 5.99 0 0010 12z">
-                                    </path>
-                                </svg>
-                                <span class="ml-3">Show Account List</span>
-
-                            </a>
-                        </li>
-                          <li class="nav-item">
-                            <a href="DispatchServlet?btnAction=Timekeeping"
-                                class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 active:bg-gray-100">
-                                <svg class="w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white"
-                                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true">
-                                    <path clip-rule="evenodd" fill-rule="evenodd"
-                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-5.5-2.5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zM10 12a5.99 5.99 0 00-4.793 2.39A6.483 6.483 0 0010 16.5a6.483 6.483 0 004.793-2.11A5.99 5.99 0 0010 12z">
-                                    </path>
-                                </svg>
-                                <span class="ml-3">Show Timekeeping List</span>
-
-                            </a>
-                        </li>
-                    </c:if>
-                    
+                   
                     <!--role HR_SM-->
                     
                     <c:if test="${user != null and user.roleName == 'HR_SM'}">
