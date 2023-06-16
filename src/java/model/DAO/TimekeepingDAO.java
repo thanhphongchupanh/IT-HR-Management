@@ -78,9 +78,7 @@ public class TimekeepingDAO {
             if (con != null) {
                 String sql = "select e.employee_id, e.employee_name "
                         + "from employee e "
-                        + "Join [contract] c on c.employee_contractId = e.employee_contractId "
-                        + "Join salary s on c.salaryId = s.salaryId "
-                        + "Join timekeeping t on t.salaryId = s.salaryId "
+                        + "Join timekeeping t on t.employeeID = e.employee_id "
                         + "Where MONTH(t.[date]) = ?";
                 stm = con.prepareStatement(sql);
                 stm.setString(1, month);
@@ -122,9 +120,7 @@ public class TimekeepingDAO {
             if (con != null) {
                 String sql = "select e.employee_id, e.employee_name, t.[date], t.timekiN, t.[timeOut], t.[status] "
                         + "from employee e "
-                        + "Join [contract] c on c.employee_contractId = e.employee_contractId "
-                        + "Join salary s on c.salaryId = s.salaryId "
-                        + "Join timekeeping t on t.salaryID = s.salaryId "
+                        + "Join timekeeping t on t.employeeID = e.employee_id "
                         + "Where e.employee_name LIKE N'%' + ? + N'%' AND MONTH(t.[date]) = ?";
                 stm = con.prepareStatement(sql);
                 stm.setString(1, emp_Name);
@@ -171,9 +167,7 @@ public class TimekeepingDAO {
             if (con != null) {
                 String sql = "select e.employee_id, e.employee_name, t.[date], t.timekiN, t.[timeOut], t.[status] "
                         + "from employee e "
-                        + "Join [contract] c on c.employee_contractId = e.employee_contractId "
-                        + "Join salary s on c.salaryId = s.salaryId "
-                        + "Join timekeeping t on t.salaryID = s.salaryId "
+                        + "Join timekeeping t on t.employeeID = e.employee_id "
                         + "Where e.employee_name LIKE N'%' + ? + N'%' ";
                 stm = con.prepareStatement(sql);
                 stm.setString(1, emp_Name);

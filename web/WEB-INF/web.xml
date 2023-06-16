@@ -49,6 +49,26 @@
         <servlet-class>controlller.OvertimeDetailServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ContractListServlet</servlet-name>
+        <servlet-class>controlller.ContractListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContractDetailServlet</servlet-name>
+        <servlet-class>controlller.ContractDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateAccountDetailServlet</servlet-name>
+        <servlet-class>controlller.UpdateAccountDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchDateOvertime</servlet-name>
+        <servlet-class>controlller.SearchDateOvertime</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OvertimeDetail2</servlet-name>
+        <servlet-class>controlller.OvertimeDetail2</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>DropDownServlet</servlet-name>
         <servlet-class>controlller.DropDownServlet</servlet-class>
     </servlet>
@@ -108,10 +128,12 @@
         <servlet-name>ApplyApplicantServlet</servlet-name>
         <servlet-class>controlller.ApplyApplicantServlet</servlet-class>
     </servlet>
+
     <servlet>
         <servlet-name>UpdateUserInfoServlet</servlet-name>
         <servlet-class>controlller.UpdateUserInfoServlet</servlet-class>
     </servlet>
+
     <servlet>
         <servlet-name>CreateDayLeaveServlet</servlet-name>
         <servlet-class>controlller.CreateDayLeaveServlet</servlet-class>
@@ -120,6 +142,8 @@
         <servlet-name>CreateHrApplicationServlet</servlet-name>
         <servlet-class>controlller.CreateHrApplicationServlet</servlet-class>
     </servlet>
+
+
     <servlet-mapping>
         <servlet-name>DispatchServlet</servlet-name>
         <url-pattern>/DispatchServlet</url-pattern>
@@ -153,12 +177,9 @@
         <url-pattern>/DeleteStaffDetailServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AccountListServlet</servlet-name>
-        <url-pattern>/AccountListServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AccountDetailServlet</servlet-name>
-        <url-pattern>/AccountDetailServlet</url-pattern>
+
+        <servlet-name>CreateDayLeaveServlet</servlet-name>
+        <url-pattern>/CreateDayLeaveServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>OvertimeListServlet</servlet-name>
@@ -167,6 +188,36 @@
     <servlet-mapping>
         <servlet-name>OvertimeDetailServlet</servlet-name>
         <url-pattern>/OvertimeDetailServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+
+        <servlet-name>AccountListServlet</servlet-name>
+        <url-pattern>/AccountListServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccountDetailServlet</servlet-name>
+        <url-pattern>/AccountDetailServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ContractListServlet</servlet-name>
+        <url-pattern>/ContractListServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContractDetailServlet</servlet-name>
+        <url-pattern>/ContractDetailServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateAccountDetailServlet</servlet-name>
+        <url-pattern>/UpdateAccountDetailServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchDateOvertime</servlet-name>
+        <url-pattern>/SearchDateOvertime</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OvertimeDetail2</servlet-name>
+        <url-pattern>/OvertimeDetail2</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DropDownServlet</servlet-name>
@@ -228,10 +279,12 @@
         <servlet-name>ApplyApplicantServlet</servlet-name>
         <url-pattern>/ApplyApplicantServlet</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>UpdateUserInfoServlet</servlet-name>
         <url-pattern>/UpdateUserInfoServlet</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>CreateDayLeaveServlet</servlet-name>
         <url-pattern>/CreateDayLeaveServlet</url-pattern>
@@ -240,10 +293,9 @@
         <servlet-name>CreateHrApplicationServlet</servlet-name>
         <url-pattern>/CreateHrApplicationServlet</url-pattern>
     </servlet-mapping>
+
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>30</session-timeout>
     </session-config>
     <welcome-file-list>
         <welcome-file>Home page.jsp</welcome-file>

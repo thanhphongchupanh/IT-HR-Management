@@ -223,7 +223,7 @@ public class HRDao {
                     String role = rs.getString("roleName");
                     boolean status = rs.getBoolean("status");
                     employeedto = new EmployeeDto(employeeId, "", employeeName, null, phoneNumer, null,
-                            0, 0, gender, "", "", "", null, departmentName, role, "", "", status);
+                            null, 0, gender, "", "", "", null, departmentName, role, "", "", "", status);
                     if (this.employeeList == null) {
                         this.employeeList = new ArrayList<>();
                     }//end account List had NOT existed
@@ -264,7 +264,7 @@ public class HRDao {
                     String departmentID = rs.getString("department_id");
 
                     employeedto = new EmployeeDto("", departmentID, "", null, 0, null,
-                            0, 0, false, "", "", "", null, "", "", "", "", false);
+                            null, 0, false, "", "", "", null, "", "", "", "", "", false);
                 }
             }
         } catch (Exception e) {
@@ -299,8 +299,9 @@ public class HRDao {
                 rs = stm.executeQuery();
                 while (rs.next()) {
                     String name = rs.getString("employee_name");
-                    employeedto = new EmployeeDto("", "", name, null, 0, null,
-                            0, 0, false, "", "", "", null, "", "", "", "", false);
+                    employeedto = new EmployeeDto("", "", name, null, 0, null, "", 0, false, "", "", "", "", "", "", "", "", "", false);
+//                    employeedto = new EmployeeDto("", "", name, null, 0, null,
+//                            0, 0, false, "", "", "", null, "", "", "", "", false);
                     if (this.employeeList == null) {
                         this.employeeList = new ArrayList<>();
                     }
