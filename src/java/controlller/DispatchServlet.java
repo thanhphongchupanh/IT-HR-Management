@@ -29,9 +29,22 @@ public class DispatchServlet extends HttpServlet {
     private static final String FIND_STAFF_DETAIL_CONTROLLER = "FindStaffDetailServlet";
     private static final String UPDATE_STAFF_DETAIL_CONTROLLER = "UpdateStaffDetailServlet";
     private static final String DELETE_STAFF_DETAIL_CONTROLLER = "DeleteStaffDetailServlet";
-    private static final String CREATE_DAY_LEAVE_CONTROLLER = "CreateDayLeaveServlet";
     private static final String ACCOUNT_LIST = "AccountListServlet";
     private static final String ACCOUNT_DETAIL = "AccountDetailServlet";
+    private static final String DROP_DOWN_CONTROLLER = "DropDownServlet";
+    private static final String DAY_LEAVE_PENDING_CONTROLLER = "DayLeavePendingServlet";
+    private static final String APPROVE_DAY_LEAVE_CONTROLLER = "UpdateApproveServlet";
+    private static final String DAY_LEAVE_CONTROLLER = "DayLeaveServlet";
+    private static final String DAY_LEAVE_REJECT_CONTROLLER = "DayLeaveRejectServlet";
+    private static final String REJECT_DAY_LEAVE_CONTROLLER = "UpdateRejectServlet";
+    private static final String SENT_DAY_LEAVE_CONTROLLER = "SentDayLeaveServlet";
+    private static final String USER_INFO_CONTROLLER = "UserInfoServlet";
+    private static final String REPORT_CONTROLLER = "ReportServlet";
+    private static final String REPORT_DETAIL_CONTROLLER = "ViewReportServlet";
+    private static final String TIMEKEEPING_CONTROLLER = "TimekeepingServlet";
+    private static final String SEARCH_TIMEKEEPING_CONTROLLER = "SearchDateTimekeepingServlet";
+    private static final String TIMEKEEPING_DETAIL_CONTROLLER = "TimekeepingDetailServlet";
+    private static final String TIMEKEEPING_DETAIL_2_CONTROLLER = "TimekeepingDetail";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -63,8 +76,11 @@ public class DispatchServlet extends HttpServlet {
                 case "staffDetail":
                     url = STAFF_DETAIL_CONTROLLER;
                     break;
-//                case "AccountList":
-//                    url = ACCOUNT_LIST_PAGE;
+                case "Staff":
+                    url = "StaffListController";
+                    break;
+//                case "ShowOverTimeList":
+//                    url = "";
 //                    break;
                 case "forgot":
                     url = FORGOT_CONTROLLER;
@@ -81,14 +97,59 @@ public class DispatchServlet extends HttpServlet {
                 case "Save":
                     url = UPDATE_STAFF_DETAIL_CONTROLLER;
                     break;
-                case "Create":
-                    url = CREATE_DAY_LEAVE_CONTROLLER;
+                case "CreateApplication":
+                    url = DROP_DOWN_CONTROLLER;    //khi vào createapplication.jsp thì dropdown list nv của report sẽ xuất hiện
                     break;
                 case "ShowAccountList":
                     url = ACCOUNT_LIST;
                     break;
                 case "AccDetail":
                     url = ACCOUNT_DETAIL;
+                    break;
+                case "Pending":
+                    url = DAY_LEAVE_PENDING_CONTROLLER;
+                    break;
+                case "Approve":
+                    url = APPROVE_DAY_LEAVE_CONTROLLER;
+                    break;
+                case "Approved":
+                    url = DAY_LEAVE_CONTROLLER;
+                    break;
+                case "Rejected":
+                    url = DAY_LEAVE_REJECT_CONTROLLER;
+                    break;
+                case "Reject":
+                    url = REJECT_DAY_LEAVE_CONTROLLER;
+                    break;
+                case "Sent":
+                    url = SENT_DAY_LEAVE_CONTROLLER;
+                    break;
+                case "UserInfo":
+                    url = USER_INFO_CONTROLLER;
+                    break;
+                case "Report":
+                    url = REPORT_CONTROLLER;
+                    break;
+                case "ViewReport":
+                    url = REPORT_DETAIL_CONTROLLER;
+                    break;
+                case "Timekeeping":
+                    url = TIMEKEEPING_CONTROLLER;
+                    break;
+                case "SearchMonth":
+                    url = SEARCH_TIMEKEEPING_CONTROLLER;
+                    break;
+                case "timekeepingDetail":
+                    url = TIMEKEEPING_DETAIL_CONTROLLER;
+                    break;
+                case "timekeepingDetail2":
+                    url = TIMEKEEPING_DETAIL_2_CONTROLLER;
+                    break;
+                case "Salary":
+                    url = "SalaryListServlet";
+                    break;
+                case "SalaryDetail":
+                    url = "SalaryDetailServlet";
                     break;
             }
         } catch (Exception e) {

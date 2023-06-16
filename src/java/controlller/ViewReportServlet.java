@@ -5,37 +5,32 @@
  */
 package controlller;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.DAO.StaffDao;
+import javax.servlet.http.HttpSession;
+import model.DAO.HRDao;
+import model.DTO.ApplicationDTO;
 import model.DTO.EmployeeDto;
+import model.DTO.UserDto;
 
 /**
  *
  * @author ADMIN
  */
-public class UpdateStaffDetailServlet extends HttpServlet {
+public class ViewReportServlet extends HttpServlet {
 
-    private static final String ERROR = "HR/UpdateStaffDetail.jsp";
-
+    private static final String REPORT_PAGE = "HR/ReportDetail.jsp";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -46,37 +41,35 @@ public class UpdateStaffDetailServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException, Exception {
+            throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
+         String url = REPORT_PAGE;
 
-        String filename = null;
-        // String dateString = request.getParameter("txtEmployeeDOB");
-        //SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String employeeId = request.getParameter("txtEmployeeId");
-        String employeeName = request.getParameter("txtEmployeeName");
-        //Date employeedob = sdf.parse(dateString);
-        int phoneNumer = Integer.parseInt(request.getParameter("txtEmployeePhone"));
-        String employeeEmail = request.getParameter("txtEmployeeEmail");
-        String address = request.getParameter("txtEmployeeAddress");
-        // String roleName = request.getParameter("txtEmployeeRole");
-        String employeePhoto = request.getParameter("");
+        HttpSession session = request.getSession();
+        UserDto userDTO = (UserDto) session.getAttribute("user");
+        String username = userDTO.getUsername();
 
-        String url = ERROR;
+        String dateCreateStr = request.getParameter("txtDateCreate");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date dateCreate = dateFormat.parse(dateCreateStr);
+        
+        String name = request.getParameter("txtEmployeeName");
         try {
-            // call Dao
-            StaffDao dao = new StaffDao();
-             EmployeeDto dto = new EmployeeDto(employeeId, "", employeeName, null, phoneNumer, null,
-                    0, 0, false, "", employeeEmail, address, null, "", "", "", "", false);
-            
-            
-            boolean result = dao.UpdateStaffDetail(dto);
+            HRDao dao = new HRDao();
 
-            if (result) {
-                url = "DispatchServlet?"
-                        + "btnAction=Display"
-                        + "&employee_name=" + employeeName;
-            }
-        } catch (SQLException e) {
+            // Get department ID
+            EmployeeDto e_departmentid = dao.getDepartmentID(username);
+
+            session.setAttribute("DEPARTMENT_ID", e_departmentid);
+            EmployeeDto employeeDto = (EmployeeDto) session.getAttribute("DEPARTMENT_ID");
+            String departmentID = employeeDto.getDepartment_id();
+
+            // Get report list
+            dao.getReportDetail(departmentID, name, dateCreate);
+            List<ApplicationDTO> reportList = dao.getApplicationList();
+            request.setAttribute("REPORT_DETAIL_LIST", reportList);
+        } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(url);
             rd.forward(request, response);
@@ -98,9 +91,7 @@ public class UpdateStaffDetailServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ParseException ex) {
-            Logger.getLogger(UpdateStaffDetailServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            Logger.getLogger(UpdateStaffDetailServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ViewReportServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -118,9 +109,7 @@ public class UpdateStaffDetailServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ParseException ex) {
-            Logger.getLogger(UpdateStaffDetailServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            Logger.getLogger(UpdateStaffDetailServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ViewReportServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
