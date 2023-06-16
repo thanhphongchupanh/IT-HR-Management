@@ -291,7 +291,7 @@
                             <span class="ml-3">Staff</span>
                         </a>
                     </li>
-<<<<<<< HEAD
+
                     <li class="nav-item">
                         <a href="CreateDayLeave.jsp"
                            class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700">
@@ -307,7 +307,7 @@
                 </c:if>
 
         </ul>
-=======
+
                     
 <!--                    role HR_PM-->
                     
@@ -323,23 +323,6 @@
                                     </path>
                                 </svg>
                                 <span class="ml-3">Staff list</span>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="CreateDayLeave.jsp"
-                                class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 active:bg-gray-100">
-                                <svg class="w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white"
-                                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true">
-                                    <path clip-rule="evenodd" fill-rule="evenodd"
-                                        d="M3 4.25A2.25 2.25 0 015.25 2h5.5A2.25 2.25 0 0113 4.25v2a.75.75 0 01-1.5 0v-2a.75.75 0 00-.75-.75h-5.5a.75.75 0 00-.75.75v11.5c0 .414.336.75.75.75h5.5a.75.75 0 00.75-.75v-2a.75.75 0 011.5 0v2A2.25 2.25 0 0110.75 18h-5.5A2.25 2.25 0 013 15.75V4.25z">
-                                    </path>
-                                    <path clip-rule="evenodd" fill-rule="evenodd"
-                                        d="M6 10a.75.75 0 01.75-.75h9.546l-1.048-.943a.75.75 0 111.004-1.114l2.5 2.25a.75.75 0 010 1.114l-2.5 2.25a.75.75 0 11-1.004-1.114l1.048-.943H6.75A.75.75 0 016 10z">
-                                    </path>
-                                </svg>
-
-                                <span class="ml-3">Day Leave</span>
                             </a>
                         </li>
 
@@ -389,30 +372,12 @@
                                 <span class="ml-3">Staff list</span>
                             </a>
                         </li>
-                        <li class="nav-item ">
-                            <a href="CreateDayLeave.jsp"
-                                class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 active:bg-gray-100">
-                                <svg class="w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white"
-                                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true">
-                                    <path clip-rule="evenodd" fill-rule="evenodd"
-                                        d="M3 4.25A2.25 2.25 0 015.25 2h5.5A2.25 2.25 0 0113 4.25v2a.75.75 0 01-1.5 0v-2a.75.75 0 00-.75-.75h-5.5a.75.75 0 00-.75.75v11.5c0 .414.336.75.75.75h5.5a.75.75 0 00.75-.75v-2a.75.75 0 011.5 0v2A2.25 2.25 0 0110.75 18h-5.5A2.25 2.25 0 013 15.75V4.25z">
-                                    </path>
-                                    <path clip-rule="evenodd" fill-rule="evenodd"
-                                        d="M6 10a.75.75 0 01.75-.75h9.546l-1.048-.943a.75.75 0 111.004-1.114l2.5 2.25a.75.75 0 010 1.114l-2.5 2.25a.75.75 0 11-1.004-1.114l1.048-.943H6.75A.75.75 0 016 10z">
-                                    </path>
-                                </svg>
 
-                                <span class="ml-3">Day Leave</span>
-                            </a>
-                        </li>
->>>>>>> f81c58245a5195342f9085087b1d4d6e6836ff2d
 
     </div>
 
-<<<<<<< HEAD
 </aside>
-=======
+
                             </a>
                         </li>
                           <li class="nav-item">
@@ -433,68 +398,7 @@
                     
                     <!--role HR_SD-->
                     
-                    <c:if test="${user != null and user.roleName == 'HR_SD'}">
-                        <li class="nav-item ">
-                            <a href="DispatchServlet?btnAction=Staff"
-                                class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 active:bg-gray-100">
-                                <svg class="w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white"
-                                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true">
-                                    <path
-                                        d="M10 9a3 3 0 100-6 3 3 0 000 6zM6 8a2 2 0 11-4 0 2 2 0 014 0zM1.49 15.326a.78.78 0 01-.358-.442 3 3 0 014.308-3.516 6.484 6.484 0 00-1.905 3.959c-.023.222-.014.442.025.654a4.97 4.97 0 01-2.07-.655zM16.44 15.98a4.97 4.97 0 002.07-.654.78.78 0 00.357-.442 3 3 0 00-4.308-3.517 6.484 6.484 0 011.907 3.96 2.32 2.32 0 01-.026.654zM18 8a2 2 0 11-4 0 2 2 0 014 0zM5.304 16.19a.844.844 0 01-.277-.71 5 5 0 019.947 0 .843.843 0 01-.277.71A6.975 6.975 0 0110 18a6.974 6.974 0 01-4.696-1.81z">
-                                    </path>
-                                </svg>
-                                <span class="ml-3">Staff list</span>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="CreateDayLeave.jsp"
-                                class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 active:bg-gray-100">
-                                <svg class="w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white"
-                                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true">
-                                    <path clip-rule="evenodd" fill-rule="evenodd"
-                                        d="M3 4.25A2.25 2.25 0 015.25 2h5.5A2.25 2.25 0 0113 4.25v2a.75.75 0 01-1.5 0v-2a.75.75 0 00-.75-.75h-5.5a.75.75 0 00-.75.75v11.5c0 .414.336.75.75.75h5.5a.75.75 0 00.75-.75v-2a.75.75 0 011.5 0v2A2.25 2.25 0 0110.75 18h-5.5A2.25 2.25 0 013 15.75V4.25z">
-                                    </path>
-                                    <path clip-rule="evenodd" fill-rule="evenodd"
-                                        d="M6 10a.75.75 0 01.75-.75h9.546l-1.048-.943a.75.75 0 111.004-1.114l2.5 2.25a.75.75 0 010 1.114l-2.5 2.25a.75.75 0 11-1.004-1.114l1.048-.943H6.75A.75.75 0 016 10z">
-                                    </path>
-                                </svg>
-
-                                <span class="ml-3">Day Leave</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="DispatchServlet?btnAction=ShowAccountList"
-                                class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 active:bg-gray-100">
-                                <svg class="w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white"
-                                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true">
-                                    <path clip-rule="evenodd" fill-rule="evenodd"
-                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-5.5-2.5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zM10 12a5.99 5.99 0 00-4.793 2.39A6.483 6.483 0 0010 16.5a6.483 6.483 0 004.793-2.11A5.99 5.99 0 0010 12z">
-                                    </path>
-                                </svg>
-                                <span class="ml-3">Show Account List</span>
-
-                            </a>
-                        </li>
-                          <li class="nav-item">
-                            <a href="DispatchServlet?btnAction=Timekeeping"
-                                class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 active:bg-gray-100">
-                                <svg class="w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white"
-                                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true">
-                                    <path clip-rule="evenodd" fill-rule="evenodd"
-                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-5.5-2.5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zM10 12a5.99 5.99 0 00-4.793 2.39A6.483 6.483 0 0010 16.5a6.483 6.483 0 004.793-2.11A5.99 5.99 0 0010 12z">
-                                    </path>
-                                </svg>
-                                <span class="ml-3">Show Timekeeping List</span>
-
-                            </a>
-                        </li>
-                    </c:if>
-                    
+                   
                     <!--role HR_SM-->
                     
                     <c:if test="${user != null and user.roleName == 'HR_SM'}">
@@ -511,23 +415,7 @@
                                 <span class="ml-3">Staff list</span>
                             </a>
                         </li>
-                        <li class="nav-item ">
-                            <a href="CreateDayLeave.jsp"
-                                class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 active:bg-gray-100">
-                                <svg class="w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white"
-                                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true">
-                                    <path clip-rule="evenodd" fill-rule="evenodd"
-                                        d="M3 4.25A2.25 2.25 0 015.25 2h5.5A2.25 2.25 0 0113 4.25v2a.75.75 0 01-1.5 0v-2a.75.75 0 00-.75-.75h-5.5a.75.75 0 00-.75.75v11.5c0 .414.336.75.75.75h5.5a.75.75 0 00.75-.75v-2a.75.75 0 011.5 0v2A2.25 2.25 0 0110.75 18h-5.5A2.25 2.25 0 013 15.75V4.25z">
-                                    </path>
-                                    <path clip-rule="evenodd" fill-rule="evenodd"
-                                        d="M6 10a.75.75 0 01.75-.75h9.546l-1.048-.943a.75.75 0 111.004-1.114l2.5 2.25a.75.75 0 010 1.114l-2.5 2.25a.75.75 0 11-1.004-1.114l1.048-.943H6.75A.75.75 0 016 10z">
-                                    </path>
-                                </svg>
 
-                                <span class="ml-3">Day Leave</span>
-                            </a>
-                        </li>
 
                         <li class="nav-item">
                             <a href="DispatchServlet?btnAction=ShowAccountList"
@@ -593,4 +481,3 @@
             </div>
 
         </aside>
->>>>>>> f81c58245a5195342f9085087b1d4d6e6836ff2d
