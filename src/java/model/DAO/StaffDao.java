@@ -51,8 +51,8 @@ public class StaffDao {
                     String role = rs.getString("roleName");
                     String departmetId = rs.getString("department_id");
                     boolean status = rs.getBoolean("status");
-                    employeedto = new EmployeeDto(employeeId, departmetId, employeeName, null, phoneNumer, null,
-                            0, 0, gender, "", "", "", null, departmentName, role, "", "", status);
+                    employeedto = new EmployeeDto(employeeId, departmentName, employeeName, null, phoneNumer, null, employeeName, phoneNumer, gender, departmentName, employeeName, employeeName, employeeName, departmentName, role, role, role, role, status);
+                    
                     if (this.staffList == null) {
                         this.staffList = new ArrayList<>();
                     }//end account List had NOT existed
@@ -104,8 +104,8 @@ public class StaffDao {
                     String roleName = rs.getString("roleName");
                     String username = rs.getString("username");
                     String photo = rs.getString("employee_photo");
-                    employeedto = new EmployeeDto(employeeId, "", employeeName, employeedob, phoneNumer, null,
-                            0, 0, gender, "", employeeEmail, address, null, departmentName, roleName, username, photo, false);
+                    employeedto = new EmployeeDto(employeeId, departmentName, employeeName, employeedob, phoneNumer, employeedob, employeeEmail, phoneNumer, gender, username, employeeEmail, address, employeeName, departmentName, roleName, username, photo, photo, gender);
+
                     if (staffDetail == null) {
                         staffDetail = new ArrayList<>();
                     }
@@ -317,8 +317,8 @@ public class StaffDao {
                     String employeeName = rs.getString("employee_name");
                     String department_id = rs.getString("department_id");
                     String employeeEmail = rs.getString("employee_email");
-                   employeeDTO = new EmployeeDto(employeeId, department_id, employeeName, null, 0, null, 
-                           0, 0, true, employeeEmail, "", "", "", "", "", "", "", false);
+                    employeeDTO = new EmployeeDto(employeeId, department_id, employeeName, null, 0, null, employeeEmail, 0, true, department_id, employeeEmail, employeeName, employeeName, department_id, sql, employeeName, sql, sql, true);
+
 //                    employeeDTO = new EmployeeDto(employeeId, department_id, employeeName, null, 0, null,
 //                            null, 0, true, "", employeeEmail, "", null, "", "", "", "");
 
@@ -356,7 +356,7 @@ public List<EmployeeDto> getAccDetail(String name) throws SQLException {
             conn = DBHelper.makeConnection();
             if (conn != null) {
                 String sql = "SELECT e.[employee_id], employee_name, e.[department_id], "
-                        + "d.[department_name], e.[employee_email], e.[datejoin], u.roleName, u.username "
+                        + "d.[department_name], e.[employee_email], e.[datejoin], u.roleName, u.username, u.[password] "
                         + "FROM employee e "
                         + "JOIN department d On e.department_id = d.department_id "
                         + "JOIN [User] u On u.employee_id = e.employee_id "
@@ -374,9 +374,10 @@ public List<EmployeeDto> getAccDetail(String name) throws SQLException {
                     String employeeEmail = rs.getString("employee_email");
                     String role = rs.getString("roleName");
                     String username = rs.getString("username");
+                    String password = rs.getString("password");
 
-                    EmployeeDTO = new EmployeeDto(employeeId, department_id, employeeName, datejoin, 0, datejoin, 0, 0, true, department_id, employeeEmail, employeeName, employeeName, department_name, role, username, role, true);
-                    
+                    EmployeeDTO = new EmployeeDto(employeeId, department_id, employeeName, datejoin, 0, datejoin, employeeEmail, 0, true, department_id, employeeEmail, employeeName, employeeName, department_name, role, username, password, role, true);
+//                    
 //                    EmployeeDTO = new EmployeeDto(employeeId, department_id, employeeName, null, 0, datejoin,
 //                            null, 0, true, "", employeeEmail, "", null, department_name, roleName, username, "");
                     

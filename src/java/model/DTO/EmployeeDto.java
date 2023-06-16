@@ -18,7 +18,7 @@ public class EmployeeDto {
     private Date employee_dob;
     private int employee_phone;
     private Date datejoin;
-    private int employee_contractId;
+    private String employee_contractId;
     private int age;
     private boolean gender;
     private String supervision_id;
@@ -28,13 +28,17 @@ public class EmployeeDto {
     private String departmentName;
     private String role;
     private String username;
+    private String password;
     private String photo;
     private boolean status;
 
     public EmployeeDto() {
     }
 
-    public EmployeeDto(String employee_id, String department_id, String employee_name, Date employee_dob, int employee_phone, Date datejoin, int employee_contractId, int age, boolean gender, String supervision_id, String employee_email, String employee_address, String employee_leaveDay, String departmentName, String role, String username, String photo, boolean status) {
+    
+    
+    public EmployeeDto(String employee_id, String department_id, String employee_name, Date employee_dob, int employee_phone, Date datejoin, String employee_contractId, int age, boolean gender, String supervision_id, 
+            String employee_email, String employee_address, String employee_leaveDay, String departmentName, String role, String username, String password, String photo, boolean status) {
         this.employee_id = employee_id;
         this.department_id = department_id;
         this.employee_name = employee_name;
@@ -51,6 +55,7 @@ public class EmployeeDto {
         this.departmentName = departmentName;
         this.role = role;
         this.username = username;
+        this.password = password;
         this.photo = photo;
         this.status = status;
     }
@@ -103,11 +108,11 @@ public class EmployeeDto {
         this.datejoin = datejoin;
     }
 
-    public int getEmployee_contractId() {
+    public String getEmployee_contractId() {
         return employee_contractId;
     }
 
-    public void setEmployee_contractId(int employee_contractId) {
+    public void setEmployee_contractId(String employee_contractId) {
         this.employee_contractId = employee_contractId;
     }
 
@@ -183,6 +188,14 @@ public class EmployeeDto {
         this.username = username;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getPhoto() {
         return photo;
     }
@@ -198,6 +211,5 @@ public class EmployeeDto {
     public void setStatus(boolean status) {
         this.status = status;
     }
-
     
 }

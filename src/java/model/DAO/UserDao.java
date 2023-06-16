@@ -233,12 +233,12 @@ public class UserDao {
                     String address = rs.getString("employee_address");
                     String role = rs.getString("roleName");
                     Date birthday = rs.getDate("employee_dob");
-                    int contractID = rs.getInt("employee_contractId");
+                    String contractID = rs.getString("employee_contractId");
                     String email = rs.getString("employee_email");
                     username = rs.getString("username");
                     dto = new EmployeeDto(employeeId, "", employeeName, birthday, phoneNumer, dateJoin, contractID, 
-                            0, gender, "", email, address, null, departmentName, role, username,
-                            role, false);
+                            0, gender, "", email, address, null, departmentName, role, username,"" ,
+                            "", false);
                     if (this.userInfoList == null) {
                         this.userInfoList = new ArrayList<>();
                     }//end account List had NOT existed

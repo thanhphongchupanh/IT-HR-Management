@@ -41,14 +41,22 @@ public class DispatchServlet extends HttpServlet {
     private static final String USER_INFO_CONTROLLER = "UserInfoServlet";
     private static final String REPORT_CONTROLLER = "ReportServlet";
 
-    private static final String REPORT_DETAIL_CONTROLLER = "ViewReportServlet";   
-
-    
-    
+    private static final String REPORT_DETAIL_CONTROLLER = "ViewReportServlet";
     private static final String TIMEKEEPING_CONTROLLER = "TimekeepingServlet";
     private static final String SEARCH_TIMEKEEPING_CONTROLLER = "SearchDateTimekeepingServlet";
     private static final String TIMEKEEPING_DETAIL_CONTROLLER = "TimekeepingDetailServlet";
     private static final String TIMEKEEPING_DETAIL_2_CONTROLLER = "TimekeepingDetail";
+
+    private static final String UPDATE_USER_INFO_CONTROLLER = "UpdateUserInfoServlet";
+
+    private static final String OVERTIME_LIST = "OvertimeListServlet";
+    private static final String OVERTIME_DETAIL = "OvertimeDetailServlet";
+    private static final String OVERTIME_DETAIL_2 = "OvertimeDetail2";
+    private static final String SEARCH_OVERTIME = "SearchDateOvertime";
+    private static final String CONTRACT_LIST = "ContractListServlet";
+    private static final String CONTRACT_DETAIL = "ContractDetailServlet";
+
+
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -98,17 +106,17 @@ public class DispatchServlet extends HttpServlet {
                 case "Delete_StaffDetail":
                     url = DELETE_STAFF_DETAIL_CONTROLLER;
                     break;
-                case "Save":
-                    url = UPDATE_STAFF_DETAIL_CONTROLLER;
-                    break;
+//                case "Save":
+//                    url = UPDATE_STAFF_DETAIL_CONTROLLER;
+//                    break;
                 case "CreateApplication":
                     url = DROP_DOWN_CONTROLLER;    //khi vào createapplication.jsp thì dropdown list nv của report sẽ xuất hiện
                     break;
                 case "ShowAccountList":
-                    url = ACCOUNT_LIST;
-                    break;
+                    url=ACCOUNT_LIST;
+                    break; 
                 case "AccDetail":
-                    url = ACCOUNT_DETAIL;
+                    url=ACCOUNT_DETAIL ;
                     break;
                 case "Pending":
                     url = DAY_LEAVE_PENDING_CONTROLLER;
@@ -135,11 +143,9 @@ public class DispatchServlet extends HttpServlet {
                     url = REPORT_CONTROLLER;
                     break;
                 case "ViewReport":
-
-                    url = REPORT_DETAIL_CONTROLLER;         
-               
+                    url = REPORT_DETAIL_CONTROLLER;
+                    break;
                 case "Timekeeping":
-
                     url = TIMEKEEPING_CONTROLLER;
                     break;
                 case "SearchMonth":
@@ -151,6 +157,32 @@ public class DispatchServlet extends HttpServlet {
                 case "timekeepingDetail2":
                     url = TIMEKEEPING_DETAIL_2_CONTROLLER;
                     break;
+                    
+                case "ShowOvertimeList":
+                    url=OVERTIME_LIST;
+                    break;
+                    
+                case "OTDetail":
+                    url=OVERTIME_DETAIL;
+                    break;
+                    
+                case "SearchOTMonth":
+                    url = SEARCH_OVERTIME;
+                    break;
+                
+                case "OTDetail2":
+                    url = OVERTIME_DETAIL_2;
+                    break;
+                    
+                case "ShowContractList":
+                    url = CONTRACT_LIST;
+                    break;
+                    
+                case "ContractDetail":
+                    url = CONTRACT_DETAIL;
+                case "Save":
+                    url = UPDATE_USER_INFO_CONTROLLER;
+                    break;
 
                 case "Salary":
                     url = "SalaryListServlet";
@@ -158,7 +190,6 @@ public class DispatchServlet extends HttpServlet {
                 case "SalaryDetail":
                     url = "SalaryDetailServlet";
                     break;
-
             }
         } catch (Exception e) {
         } finally {

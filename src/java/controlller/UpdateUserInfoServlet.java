@@ -7,26 +7,20 @@ package controlller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Random;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.DAO.StaffDao;
-import model.DTO.UserDto;
+import model.DAO.UserDao;
 
 /**
  *
  * @author ADMIN
  */
-public class CreateDayLeaveServlet extends HttpServlet {
+public class UpdateUserInfoServlet extends HttpServlet {
 
-    private static final String CREATE_LEAVE_DAY_PAGE = "CreateDayLeave.jsp";
-
+    private static final String ERROR = "UserInfo.jsp";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -39,45 +33,22 @@ public class CreateDayLeaveServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String button = request.getParameter("Create");
-        if (button.equals("Create")) {
-            String title = request.getParameter("txtTitle");
-            String type = request.getParameter("txtType");
-            String description = request.getParameter("txtDescr");
-
-            HttpSession session = request.getSession();
-            UserDto userDTO = (UserDto) session.getAttribute("user");
-            String username = userDTO.getUsername();
-
-            // Lấy thời gian hiện tại
-            LocalDateTime currentDateTime = LocalDateTime.now();
-            // Tạo định dạng ngày giờ mong muốn
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            // Tạo ngẫu nhiên một giá trị thời gian trong khoảng 10 ngày trước đến hiện tại
-            LocalDateTime randomDateTime = currentDateTime.minusMonths((long) (Math.random() * 3))
-                    .minusHours((long) (Math.random() * 24))
-                    .minusMinutes((long) (Math.random() * 60))
-                    .minusSeconds((long) (Math.random() * 60));
-            // Định dạng giá trị ngẫu nhiên của datetime
-            String dateCreate = randomDateTime.format(formatter);
-
-            // Lấy ID 
-            Random random = new Random();
-            int ranID = random.nextInt(50);
-
-            String url = CREATE_LEAVE_DAY_PAGE;
-            try {
-                StaffDao dao = new StaffDao();
-                boolean check = dao.insertLeaveReport(ranID, title, description, dateCreate, username, type);
-                if (check) {
-                    url = CREATE_LEAVE_DAY_PAGE;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                RequestDispatcher rd = request.getRequestDispatcher(url);
-                rd.forward(request, response);
+        String id = request.getParameter("txtID");
+        String email = request.getParameter("txtEmail");
+        String address = request.getParameter("txtAddress");
+        int phone = Integer.parseInt(request.getParameter("txtPhone"));
+        String url = ERROR;
+        try {
+            UserDao dao = new UserDao();
+            boolean check = dao.UpdateUserInfo(phone, email, address, id);
+            if(check){
+                url = "DispatchServlet"
+                        + "?btnAction=UserInfo";
             }
+        } catch (Exception e) {
+        }finally {
+            RequestDispatcher rd = request.getRequestDispatcher(url);
+            rd.forward(request, response);
         }
     }
 

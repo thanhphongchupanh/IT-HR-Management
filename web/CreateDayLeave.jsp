@@ -29,13 +29,13 @@
                                 <div class="w-full items-center flex  flex-col rounded-xl p-5 overflow-hidden relative">
 
                                     <div class="w-full">
-                                        <form class="position-relative w-full" action="DispatchServlet">
+                                        <form class="position-relative w-full" action="CreateDayLeaveServlet">
                                             <div class="mb-3">
                                                 <label for="txtType" class="block mb-2 text-sm font-medium ">
                                                     Title</label>
-                                                <input type="txtType"
+                                                <input type="text"
                                                     class=" border text-sm rounded-lg block w-full p-2.5  border-gray-600 placeholder-gray-400  ring-blue-500 focus:border-blue-500"
-                                                    id="txtType" name="txtType" placeholder="Enter your title" />
+                                                    id="txtType" name="txtTitle" placeholder="Enter your title" />
                                             </div>
                                             <div class="mb-3">
                                                 <label for="lang-select"
@@ -43,7 +43,6 @@
                                                 <select name="txtType" id="lang-select"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                                     <option selected value="dayleave">Day leave</option>
-                                                    <option value="recruitment">Recruitment</option>
                                                 </select>
                                             </div>
                                             <div class="mb-3">
@@ -58,7 +57,7 @@
 
                                             <input
                                                 class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2"
-                                                type="submit" name="btnAction" value="Create">
+                                                type="submit" name="btnAction" value="Create"/>
                                         </form>
                                     </div>
 
