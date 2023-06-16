@@ -286,10 +286,6 @@
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>CreateDayLeaveServlet</servlet-name>
-        <url-pattern>/CreateDayLeaveServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>CreateHrApplicationServlet</servlet-name>
         <url-pattern>/CreateHrApplicationServlet</url-pattern>
     </servlet-mapping>
