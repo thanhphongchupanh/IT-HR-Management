@@ -40,6 +40,7 @@ public class DispatchServlet extends HttpServlet {
     private static final String SENT_DAY_LEAVE_CONTROLLER = "SentDayLeaveServlet";
     private static final String USER_INFO_CONTROLLER = "UserInfoServlet";
     private static final String REPORT_CONTROLLER = "ReportServlet";
+
     private static final String REPORT_DETAIL_CONTROLLER = "ViewReportServlet";
     private static final String TIMEKEEPING_CONTROLLER = "TimekeepingServlet";
     private static final String SEARCH_TIMEKEEPING_CONTROLLER = "SearchDateTimekeepingServlet";
@@ -77,8 +78,11 @@ public class DispatchServlet extends HttpServlet {
                 case "staffDetail":
                     url = STAFF_DETAIL_CONTROLLER;
                     break;
-//                case "AccountList":
-//                    url = ACCOUNT_LIST_PAGE;
+                case "Staff":
+                    url = "StaffListController";
+                    break;
+//                case "ShowOverTimeList":
+//                    url = "";
 //                    break;
                 case "forgot":
                     url = FORGOT_CONTROLLER;
@@ -145,6 +149,13 @@ public class DispatchServlet extends HttpServlet {
                     break;
                 case "Save":
                     url = UPDATE_USER_INFO_CONTROLLER;
+                    break;
+
+                case "Salary":
+                    url = "SalaryListServlet";
+                    break;
+                case "SalaryDetail":
+                    url = "SalaryDetailServlet";
                     break;
             }
         } catch (Exception e) {

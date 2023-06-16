@@ -44,6 +44,7 @@
         <servlet-name>AccountDetailServlet</servlet-name>
         <servlet-class>controlller.AccountDetailServlet</servlet-class>
     </servlet>
+
     <servlet>
         <servlet-name>OvertimeListServlet</servlet-name>
         <servlet-class>controlller.OvertimeListServlet</servlet-class>
@@ -112,10 +113,12 @@
         <servlet-name>ApplyApplicantServlet</servlet-name>
         <servlet-class>controlller.ApplyApplicantServlet</servlet-class>
     </servlet>
+
     <servlet>
         <servlet-name>UpdateUserInfoServlet</servlet-name>
         <servlet-class>controlller.UpdateUserInfoServlet</servlet-class>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>DispatchServlet</servlet-name>
         <url-pattern>/DispatchServlet</url-pattern>
@@ -160,6 +163,7 @@
         <servlet-name>AccountDetailServlet</servlet-name>
         <url-pattern>/AccountDetailServlet</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>OvertimeListServlet</servlet-name>
         <url-pattern>/OvertimeListServlet</url-pattern>
@@ -228,10 +232,12 @@
         <servlet-name>ApplyApplicantServlet</servlet-name>
         <url-pattern>/ApplyApplicantServlet</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>UpdateUserInfoServlet</servlet-name>
         <url-pattern>/UpdateUserInfoServlet</url-pattern>
     </servlet-mapping>
+
     <session-config>
         <session-timeout>
             30
