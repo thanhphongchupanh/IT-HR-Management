@@ -36,7 +36,7 @@ public class StaffDao {
             conn = DBHelper.makeConnection();
             if (conn != null) {
                 String sql = "SELECT e.employee_id, employee_name, gender, employee_phone, "
-                        + "department_name, u.roleName, u.status "
+                        + "department_name, u.roleName, u.status, e.department_id "
                         + "FROM employee e "
                         + "JOIN department d On e.department_id = d.department_id "
                         + "JOIN [User] u On u.employee_id = e.employee_id ";
@@ -49,9 +49,10 @@ public class StaffDao {
                     int phoneNumer = rs.getInt("employee_phone");
                     String departmentName = rs.getString("department_name");
                     String role = rs.getString("roleName");
+                    String departmetId = rs.getString("department_id");
                     boolean status = rs.getBoolean("status");
-                    employeedto = new EmployeeDto(employeeId, "", employeeName, null, phoneNumer, null,
-                            null, 0, gender, "", "", "", null, departmentName, role, "", "", status);
+                    employeedto = new EmployeeDto(employeeId, departmentName, employeeName, null, phoneNumer, null, employeeName, phoneNumer, gender, departmentName, employeeName, employeeName, employeeName, departmentName, role, role, role, role, status);
+                    
                     if (this.staffList == null) {
                         this.staffList = new ArrayList<>();
                     }//end account List had NOT existed
@@ -103,8 +104,8 @@ public class StaffDao {
                     String roleName = rs.getString("roleName");
                     String username = rs.getString("username");
                     String photo = rs.getString("employee_photo");
-                    employeedto = new EmployeeDto(employeeId, "", employeeName, employeedob, phoneNumer, null,
-                            null, 0, gender, "", employeeEmail, address, null, departmentName, roleName, username, photo, false);
+                    employeedto = new EmployeeDto(employeeId, departmentName, employeeName, employeedob, phoneNumer, employeedob, employeeEmail, phoneNumer, gender, username, employeeEmail, address, employeeName, departmentName, roleName, username, photo, photo, gender);
+
                     if (staffDetail == null) {
                         staffDetail = new ArrayList<>();
                     }
@@ -222,7 +223,7 @@ public class StaffDao {
         try {
             conn = DBHelper.makeConnection();
             if (conn != null) {
-                String sql = "INSERT INTO DayLeave(dayleave_id, dayleave_title, dayleave_description ,[date-created], username, dayleave_type) "
+                String sql = "INSERT INTO [Application](application_id, application_title, application_description ,[date-created], username, application_type) "
                         + "VALUES (?, ?, ?, ?, ?, ?);";
                 stm = conn.prepareStatement(sql);
                 stm.setInt(1, id);
@@ -249,6 +250,45 @@ public class StaffDao {
         return result;
     }
 
+    public boolean insertReport(int id, String title, String descr, String dateCreate,
+            String username, String type, String employeeName, int presentDay, int absentDay, int lateDay, int overtimeDay) throws SQLException, ClassNotFoundException {
+        Connection conn = null;
+        PreparedStatement stm = null;
+        boolean result = false;
+        try {
+            conn = DBHelper.makeConnection();
+            if (conn != null) {
+                String sql = "INSERT INTO [Application](application_id, application_title, application_description, [date-created], username , application_type ,employee_name, present_day, late_day, absent_day, overtime_day) "
+                        + "VALUES (?, ?, ?, ?, ?, ?,?, ?,?,?,?);";
+                stm = conn.prepareStatement(sql);
+                stm.setInt(1, id);
+                stm.setString(2, title);
+                stm.setString(3, descr);
+                stm.setString(4, dateCreate);
+                stm.setString(5, username);
+                stm.setString(6, type);
+                stm.setString(7, employeeName);
+                stm.setInt(8, presentDay);
+                stm.setInt(9, lateDay);
+                stm.setInt(10, absentDay);
+                stm.setInt(11, overtimeDay);
+                int effect = stm.executeUpdate();
+                if (effect > 0) {
+                    result = true;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return result;
+    }
     
     private List<EmployeeDto> accountList;
 
@@ -277,7 +317,8 @@ public class StaffDao {
                     String employeeName = rs.getString("employee_name");
                     String department_id = rs.getString("department_id");
                     String employeeEmail = rs.getString("employee_email");
-                    employeeDTO = new EmployeeDto(employeeId, department_id, employeeName, null, 0, null, employeeEmail, 0, true, department_id, employeeEmail, employeeName, employeeName, department_id, null, employeeName, null, true);
+                    employeeDTO = new EmployeeDto(employeeId, department_id, employeeName, null, 0, null, employeeEmail, 0, true, department_id, employeeEmail, employeeName, employeeName, department_id, sql, employeeName, sql, sql, true);
+
 //                    employeeDTO = new EmployeeDto(employeeId, department_id, employeeName, null, 0, null,
 //                            null, 0, true, "", employeeEmail, "", null, "", "", "", "");
 
@@ -302,7 +343,8 @@ public class StaffDao {
         }
     }
 
-    public List<EmployeeDto> getAccDetail(String name) throws SQLException {
+
+public List<EmployeeDto> getAccDetail(String name) throws SQLException {
         List<EmployeeDto> AccList = null;
 
         Connection conn = null;
@@ -314,7 +356,7 @@ public class StaffDao {
             conn = DBHelper.makeConnection();
             if (conn != null) {
                 String sql = "SELECT e.[employee_id], employee_name, e.[department_id], "
-                        + "d.[department_name], e.[employee_email], e.[datejoin], u.roleName, u.username "
+                        + "d.[department_name], e.[employee_email], e.[datejoin], u.roleName, u.username, u.[password] "
                         + "FROM employee e "
                         + "JOIN department d On e.department_id = d.department_id "
                         + "JOIN [User] u On u.employee_id = e.employee_id "
@@ -332,9 +374,10 @@ public class StaffDao {
                     String employeeEmail = rs.getString("employee_email");
                     String role = rs.getString("roleName");
                     String username = rs.getString("username");
+                    String password = rs.getString("password");
 
-                    EmployeeDTO = new EmployeeDto(employeeId, department_id, employeeName, datejoin, 0, datejoin, employeeEmail, 0, true, department_id, employeeEmail, employeeName, employeeName, department_name, role, username, role, true);
-                    
+                    EmployeeDTO = new EmployeeDto(employeeId, department_id, employeeName, datejoin, 0, datejoin, employeeEmail, 0, true, department_id, employeeEmail, employeeName, employeeName, department_name, role, username, password, role, true);
+//                    
 //                    EmployeeDTO = new EmployeeDto(employeeId, department_id, employeeName, null, 0, datejoin,
 //                            null, 0, true, "", employeeEmail, "", null, department_name, roleName, username, "");
                     

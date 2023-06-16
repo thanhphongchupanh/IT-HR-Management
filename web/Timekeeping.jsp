@@ -1,26 +1,24 @@
 <%-- 
-    Document   : OTList
-    Created on : May 23, 2023, 7:35:28 PM
-    Author     : 23030
+    Document   : Timekeeping
+    Created on : Jun 10, 2023, 8:18:41 PM
+    Author     : PREDATOR
 --%>
 
-<%@page import="model.DAO.OvertimeDAO"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Overtime List</title>
+        <title>Timekeeping Page</title>
     </head>
     <body>
-        <h1>Overtime List</h1>
-        <c:set var="result" value="${requestScope.OT_LIST}"/>
+        <h1>Timekeeping</h1>
+        <c:set var="result" value="${requestScope.TIMEKEEPING_LIST}"/>
         <c:if test="${not empty result}">
-            <h2>List of Employees have Overtime</h2>   
             
             <form action="DispatchServlet">
-                <select name="monthparam" onchange="toggleButton(this)">
+                <select name="Month" onchange="toggleButton(this)">
                     <option value="" disabled selected>Select A Month</option>
                     <option value="01">January</option>
                     <option value="02">February</option>
@@ -35,7 +33,7 @@
                     <option value="11">November</option>
                     <option value="12">December</option>
                 </select>
-                <input type="submit" value="SearchOTMonth" name="btnAction" id="myButton" disabled  />
+                <input type="submit" value="SearchMonth" name="btnAction" id="myButton" disabled  />
                 <script>
                 function toggleButton(selectElement) {
                     var button = document.getElementById("myButton");
@@ -48,45 +46,38 @@
             </script>
             </form>
             
-                <table border="1">
-                    <thead>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Employee Name</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="dto" items="${result}">
                         <tr>
-                            <th>No</th>
-                            <th>Employee ID</th>
-                            <th>Employee Name</th>
-                            <th>Department ID</th>
-                            <th>Role</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach var="dto" items="${result}" varStatus="loop">
-                        <tr>
-                            <td>
-                                ${loop.count}   
-                            </td>
-                            <td>
-                                ${dto.employeeId}
-                            </td>
-                            <td>
-                                <c:url var="OTDetail2" value="DispatchServlet">
-                                    <c:param name="btnAction" value="OTDetail2" />
-                                    <c:param name="employee_name" value="${dto.employee_name}"/>
-                                </c:url>
-                                <a href="${OTDetail2}"> ${dto.employee_name}</a> 
-                            </td>
-                            <td>
-                                ${dto.department_id}
-                            </td>
                             <td>
                                 
-                                ${dto.role}
-                            </td>   
+                                ${dto.employee_id}
+                                
+                            </td>
+                          
+                            <td>
+                                ${dto.employee_name}
+                            </td>
+                            <td>
+                               <c:url var="timekeepingDetail2" value="DispatchServlet">
+                                    <c:param name="btnAction" value="timekeepingDetail2" />
+                                    <c:param name="employeeName" value="${dto.employee_name}"/>
+                                </c:url>
+                                <a href="${timekeepingDetail2}"> Detail</a> 
+                            </td>
                         </tr>
-                         </c:forEach>
-                    </tbody>
-                
-        </table>
-        </c:if>
+                    </c:forEach>
+                </tbody>
+            </table>
 
+        </c:if>
     </body>
 </html>
