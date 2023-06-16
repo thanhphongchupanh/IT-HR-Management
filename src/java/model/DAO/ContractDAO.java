@@ -36,28 +36,20 @@ public class ContractDAO {
         try {
             conn = DBHelper.makeConnection();
             if (conn != null) {
-                String sql = "SELECT c.employee_contractId, e.employee_name, salaryId, signDate, expDate, inspireDate, Welfare_id, " 
-                            + "bonus, medicalInsurance, accidentalInsurance, SocialAssurance, tax, penltyMoney " 
-                            + "FROM contract c "
-                            + "JOIN employee e On e.employee_contractId = c.employee_contractId";
+                String sql = "SELECT c.employee_contractId, e.employee_name, signDate, expDate, inspireDate, " +
+                             "medicalInsurance, accidentalInsurance, SocialAssurance, tax " +
+                             "FROM contract c " +
+                             "JOIN employee e On e.employee_contractId = c.employee_contractId";
                 stm = conn.prepareStatement(sql);
                 rs = stm.executeQuery();
                 while (rs.next()) {
                     int employee_contractID = rs.getInt("employee_contractId");
                     String employee_name = rs.getString("employee_name");
-                    String salaryID = rs.getString("salaryId");
                     Date signDate = rs.getDate("signDate");
                     Date expDate = rs.getDate("expDate");
                     Date inspireDate = rs.getDate("inspireDate");
-                    int welfareID = rs.getInt("Welfare_id");
-                    float bonus = rs.getFloat("bonus");
-                    int MedInsurance = rs.getInt("medicalInsurance");
-                    int AccInsurance = rs.getInt("accidentalInsurance");
-                    int SocInsurance = rs.getInt("SocialAssurance");
-                    int tax = rs.getInt("tax");
-                    int penalty = rs.getInt("penltyMoney");
                     
-                    contractDTO = new ContractDTO(employee_contractID, employee_name, salaryID, signDate, expDate, inspireDate, welfareID, bonus, MedInsurance, AccInsurance, SocInsurance, tax, penalty, null);
+                    contractDTO = new ContractDTO(employee_contractID, employee_name, "", signDate, expDate, inspireDate, 0, 0, 0, 0, 0, 0, 0, null);
                     
                     if (this.ContractList == null) {
                         this.ContractList = new ArrayList<>();
