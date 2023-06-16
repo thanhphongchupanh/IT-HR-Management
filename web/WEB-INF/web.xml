@@ -44,7 +44,6 @@
         <servlet-name>AccountDetailServlet</servlet-name>
         <servlet-class>controlller.AccountDetailServlet</servlet-class>
     </servlet>
-<<<<<<< HEAD
     <servlet>
         <servlet-name>OvertimeListServlet</servlet-name>
         <servlet-class>controlller.OvertimeListServlet</servlet-class>
@@ -52,6 +51,26 @@
     <servlet>
         <servlet-name>OvertimeDetailServlet</servlet-name>
         <servlet-class>controlller.OvertimeDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContractListServlet</servlet-name>
+        <servlet-class>controlller.ContractListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContractDetailServlet</servlet-name>
+        <servlet-class>controlller.ContractDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateAccountDetailServlet</servlet-name>
+        <servlet-class>controlller.UpdateAccountDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchDateOvertime</servlet-name>
+        <servlet-class>controlller.SearchDateOvertime</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OvertimeDetail2</servlet-name>
+        <servlet-class>controlller.OvertimeDetail2</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DropDownServlet</servlet-name>
@@ -113,9 +132,6 @@
         <servlet-name>ApplyApplicantServlet</servlet-name>
         <servlet-class>controlller.ApplyApplicantServlet</servlet-class>
     </servlet>
-=======
-    
->>>>>>> f81c58245a5195342f9085087b1d4d6e6836ff2d
     <servlet-mapping>
         <servlet-name>DispatchServlet</servlet-name>
         <url-pattern>/DispatchServlet</url-pattern>
@@ -153,6 +169,14 @@
         <url-pattern>/CreateDayLeaveServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>OvertimeListServlet</servlet-name>
+        <url-pattern>/OvertimeListServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OvertimeDetailServlet</servlet-name>
+        <url-pattern>/OvertimeDetailServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>AccountListServlet</servlet-name>
         <url-pattern>/AccountListServlet</url-pattern>
     </servlet-mapping>
@@ -160,14 +184,25 @@
         <servlet-name>AccountDetailServlet</servlet-name>
         <url-pattern>/AccountDetailServlet</url-pattern>
     </servlet-mapping>
-<<<<<<< HEAD
     <servlet-mapping>
-        <servlet-name>OvertimeListServlet</servlet-name>
-        <url-pattern>/OvertimeListServlet</url-pattern>
+        <servlet-name>ContractListServlet</servlet-name>
+        <url-pattern>/ContractListServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>OvertimeDetailServlet</servlet-name>
-        <url-pattern>/OvertimeDetailServlet</url-pattern>
+        <servlet-name>ContractDetailServlet</servlet-name>
+        <url-pattern>/ContractDetailServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateAccountDetailServlet</servlet-name>
+        <url-pattern>/UpdateAccountDetailServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchDateOvertime</servlet-name>
+        <url-pattern>/SearchDateOvertime</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OvertimeDetail2</servlet-name>
+        <url-pattern>/OvertimeDetail2</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DropDownServlet</servlet-name>
@@ -229,13 +264,8 @@
         <servlet-name>ApplyApplicantServlet</servlet-name>
         <url-pattern>/ApplyApplicantServlet</url-pattern>
     </servlet-mapping>
-=======
-  
->>>>>>> f81c58245a5195342f9085087b1d4d6e6836ff2d
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>30</session-timeout>
     </session-config>
     <welcome-file-list>
         <welcome-file>Home page.jsp</welcome-file>

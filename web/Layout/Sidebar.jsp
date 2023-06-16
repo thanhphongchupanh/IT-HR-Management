@@ -274,6 +274,19 @@
                         </svg>
                         <span class="ml-3">Show Overtime List</span>
                     </a>
+                    
+                <li class="nav-item">
+                    <a href="DispatchServlet?btnAction=ShowContractList"
+                       class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 active:bg-gray-100">
+                        <svg class="w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white"
+                             fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
+                             aria-hidden="true">
+                            <path clip-rule="evenodd" fill-rule="evenodd"
+                                  d="M12.577 4.878a.75.75 0 01.919-.53l4.78 1.281a.75.75 0 01.531.919l-1.281 4.78a.75.75 0 01-1.449-.387l.81-3.022a19.407 19.407 0 00-5.594 5.203.75.75 0 01-1.139.093L7 10.06l-4.72 4.72a.75.75 0 01-1.06-1.061l5.25-5.25a.75.75 0 011.06 0l3.074 3.073a20.923 20.923 0 015.545-4.931l-3.042-.815a.75.75 0 01-.53-.919z">
+                            </path>
+                        </svg>
+                        <span class="ml-3">Show Contract List</span>
+                    </a>
                 </c:if>
 
 
@@ -447,6 +460,49 @@
                     <!--role HR_SM-->
                     
                     <c:if test="${user != null and user.roleName == 'HR_SM'}">
+                        
+                        <li class="nav-item">
+                    <a href="DispatchServlet?btnAction=ShowAccountList"
+                       class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 active:bg-gray-100">
+                        <svg class="w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white"
+                             fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
+                             aria-hidden="true">
+                            <path clip-rule="evenodd" fill-rule="evenodd"
+                                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-5.5-2.5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zM10 12a5.99 5.99 0 00-4.793 2.39A6.483 6.483 0 0010 16.5a6.483 6.483 0 004.793-2.11A5.99 5.99 0 0010 12z">
+                            </path>
+                        </svg>
+                        <span class="ml-3">Show Account List</span>
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+                    <a href="DispatchServlet?btnAction=ShowOvertimeList"
+                       class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 active:bg-gray-100">
+                        <svg class="w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white"
+                             fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
+                             aria-hidden="true">
+                            <path clip-rule="evenodd" fill-rule="evenodd"
+                                  d="M12.577 4.878a.75.75 0 01.919-.53l4.78 1.281a.75.75 0 01.531.919l-1.281 4.78a.75.75 0 01-1.449-.387l.81-3.022a19.407 19.407 0 00-5.594 5.203.75.75 0 01-1.139.093L7 10.06l-4.72 4.72a.75.75 0 01-1.06-1.061l5.25-5.25a.75.75 0 011.06 0l3.074 3.073a20.923 20.923 0 015.545-4.931l-3.042-.815a.75.75 0 01-.53-.919z">
+                            </path>
+                        </svg>
+                        <span class="ml-3">Show Overtime List</span>
+                    </a>
+                    
+                <li class="nav-item">
+                    <a href="DispatchServlet?btnAction=ShowContractList"
+                       class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 active:bg-gray-100">
+                        <svg class="w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white"
+                             fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
+                             aria-hidden="true">
+                            <path clip-rule="evenodd" fill-rule="evenodd"
+                                  d="M12.577 4.878a.75.75 0 01.919-.53l4.78 1.281a.75.75 0 01.531.919l-1.281 4.78a.75.75 0 01-1.449-.387l.81-3.022a19.407 19.407 0 00-5.594 5.203.75.75 0 01-1.139.093L7 10.06l-4.72 4.72a.75.75 0 01-1.06-1.061l5.25-5.25a.75.75 0 011.06 0l3.074 3.073a20.923 20.923 0 015.545-4.931l-3.042-.815a.75.75 0 01-.53-.919z">
+                            </path>
+                        </svg>
+                        <span class="ml-3">Show Contract List</span>
+                    </a>
+                        
                         <li class="nav-item ">
                             <a href="DispatchServlet?btnAction=Staff"
                                 class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 active:bg-gray-100">
@@ -462,7 +518,7 @@
                         </li>
 
 
-                        <li class="nav-item">
+<!--                        <li class="nav-item">
                             <a href="DispatchServlet?btnAction=ShowAccountList"
                                 class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 active:bg-gray-100">
                                 <svg class="w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white"
@@ -474,7 +530,7 @@
                                 </svg>
                                 <span class="ml-3">Show Account List</span>
 
-                            </a>
+                            </a>-->
                         </li>
                           <li class="nav-item">
                             <a href="DispatchServlet?btnAction=Timekeeping"
