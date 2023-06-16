@@ -30,7 +30,7 @@
     Tax:<br>
     <input type="text" value="<%= salaryDetail.getTax()%>" readonly/><br>
     Bonus:<br>
-    <input type="text" value="<%= salaryDetail.getBonus()%>" readonly/><br>
+    <input type="text" id='bonusDetails' value="<%= salaryDetail.getBonus()%>" readonly/><br>
     Penalty Money:<br>
     <input type="text" value="<%= salaryDetail.getPenalty()%>" readonly/><br>
     Last Receiver:<br>
@@ -62,101 +62,156 @@
         <input type="text" id="totalPenaltyAbsent" readonly><br>
     </form>
 </div>
+<div id="dialog3" title="Bonus Details" style="display: none;">
+    <form>
+        <label for="bonusDay">Bonus Day:</label>
+        <input type="text" id="bonusDay" readonly><br>
+        <label for="bonusMoney">Bonus per overtime day:</label>
+        <input type="text" id="bonusMoney" readonly><br>
+        <label for="totalMoney">Total Money:</label>
+        <input type="text" id="totalMoney" readonly><br>
+    </form>
+</div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
     $(document).ready(function () {
-        var dialogInstance1; // Variable to hold the first dialog instance
-        var dialogInstance2; // Variable to hold the second dialog instance
+    var dialogInstance1; // Variable to hold the first dialog instance
+    var dialogInstance2; // Variable to hold the second dialog instance
+    var dialogInstance3;
 
-        $('#lateForWork').click(function () {
-            var applicationId = $('#applicationId').val();
+    $('#lateForWork').click(function () {
+        var applicationId = $('#applicationId').val();
 
-            if (dialogInstance2 && dialogInstance2.dialog('isOpen')) {
-                // If dialogInstance2 exists and is open, close it first
-                dialogInstance2.dialog('close');
-            }
+        if (dialogInstance2 && dialogInstance2.dialog('isOpen')) {
+            dialogInstance2.dialog('close');
+        }
 
-            $.ajax({
-                type: 'POST',
-                url: 'RetrieveLateTimeServlet',
-                data: {
-                    application_id: applicationId
-                },
-                dataType: 'json',
-                success: function (response) {
-                    $('#lateDay').val(response.lateDay + " Times");
-                    $('#lateDayPenalty').val(formatCurrency(response.lateDayPenalty));
-                    $('#totalPenalty').val(formatCurrency(response.totalPenalty));
+        if (dialogInstance3 && dialogInstance3.dialog('isOpen')) {
+            dialogInstance3.dialog('close');
+        }
 
-                    if (dialogInstance1 && dialogInstance1.dialog('isOpen')) {
-                        // If dialogInstance1 exists and is open, close it first
-                        dialogInstance1.dialog('close');
-                    }
+        $.ajax({
+            type: 'POST',
+            url: 'RetrieveLateTimeServlet',
+            data: {
+                application_id: applicationId
+            },
+            dataType: 'json',
+            success: function (response) {
+                $('#lateDay').val(response.lateDay + " Times");
+                $('#lateDayPenalty').val(formatCurrency(response.lateDayPenalty));
+                $('#totalPenalty').val(formatCurrency(response.totalPenalty));
 
-                    dialogInstance1 = $('#dialog').dialog({
-                        buttons: {
-                            Cancel: function () {
-                                $(this).dialog('close');
-                            }
-                        }
-                    });
-                },
-                error: function (xhr, status, error) {
-                    console.error(error);
-                    alert('Failed to retrieve late day details.');
+                if (dialogInstance1 && dialogInstance1.dialog('isOpen')) {
+                    dialogInstance1.dialog('close');
                 }
-            });
-        });
 
-        $('#absentForWork').click(function () {
-            var applicationId = $('#applicationId').val();
-
-            if (dialogInstance1 && dialogInstance1.dialog('isOpen')) {
-                // If dialogInstance1 exists and is open, close it first
-                dialogInstance1.dialog('close');
-            }
-
-            $.ajax({
-                type: 'POST',
-                url: 'RetrieveAbsentTimeServlet',
-                data: {
-                    application_id: applicationId
-                },
-                dataType: 'json',
-                success: function (response) {
-                    $('#absentDay').val(response.absentDay + " Times");
-
-                    $('#absentDayPenalty').val(formatCurrency(response.absentDayPenalty));
-
-                    $('#totalPenaltyAbsent').val(formatCurrency(response.totalPenaltyAbsent));
-
-                    if (dialogInstance2 && dialogInstance2.dialog('isOpen')) {
-                        // If dialogInstance2 exists and is open, close it first
-                        dialogInstance2.dialog('close');
-                    }
-
-                    dialogInstance2 = $('#dialog2').dialog({
-                        buttons: {
-                            Cancel: function () {
-                                $(this).dialog('close');
-                            }
+                dialogInstance1 = $('#dialog').dialog({
+                    buttons: {
+                        Cancel: function () {
+                            $(this).dialog('close');
                         }
-                    });
-                },
-                error: function (xhr, status, error) {
-                    console.error(error);
-                    alert('Failed to retrieve absent day details.');
-                }
-            });
+                    }
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error(error);
+                alert('Failed to retrieve late day details.');
+            }
         });
     });
 
-    function formatCurrency(amount) {
-        return  amount.toLocaleString('vi-VN') + 'VNĐ';
-    }
-    function formatDay(amount) {
-        return  amount.toLocaleString('vi-VN') + 'VNĐ';
-    }
+    $('#absentForWork').click(function () {
+        var applicationId = $('#applicationId').val();
 
+        if (dialogInstance1 && dialogInstance1.dialog('isOpen')) {
+            dialogInstance1.dialog('close');
+        }
+
+        if (dialogInstance3 && dialogInstance3.dialog('isOpen')) {
+            dialogInstance3.dialog('close');
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: 'RetrieveAbsentTimeServlet',
+            data: {
+                application_id: applicationId
+            },
+            dataType: 'json',
+            success: function (response) {
+                $('#absentDay').val(response.absentDay + " Times");
+                $('#absentDayPenalty').val(formatCurrency(response.absentDayPenalty));
+                $('#totalPenaltyAbsent').val(formatCurrency(response.totalPenaltyAbsent));
+
+                if (dialogInstance2 && dialogInstance2.dialog('isOpen')) {
+                    dialogInstance2.dialog('close');
+                }
+
+                dialogInstance2 = $('#dialog2').dialog({
+                    buttons: {
+                        Cancel: function () {
+                            $(this).dialog('close');
+                        }
+                    }
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error(error);
+                alert('Failed to retrieve absent day details.');
+            }
+        });
+    });
+
+    $('#bonusDetails').click(function () {
+        var applicationId = $('#applicationId').val();
+
+        if (dialogInstance1 && dialogInstance1.dialog('isOpen')) {
+            dialogInstance1.dialog('close');
+        }
+
+        if (dialogInstance2 && dialogInstance2.dialog('isOpen')) {
+            dialogInstance2.dialog('close');
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: 'RetrieveBonusServlet',
+            data: {
+                application_id: applicationId
+            },
+            dataType: 'json',
+            success: function (response) {
+                $('#bonusDay').val(response.bonusDay + " Times");
+                $('#bonusMoney').val(formatCurrency(response.bonusMoney));
+                $('#totalMoney').val(formatCurrency(response.totalMoney));
+
+                if (dialogInstance3 && dialogInstance3.dialog('isOpen')) {
+                    dialogInstance3.dialog('close');
+                }
+
+                dialogInstance3 = $('#dialog3').dialog({
+                    buttons: {
+                        Cancel: function () {
+                            $(this).dialog('close');
+                        }
+                    }
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error(error);
+                alert('Failed to retrieve bonus details.');
+            }
+        });
+    });
+});
+
+function formatCurrency(amount) {
+    return amount.toLocaleString('vi-VN') + 'VNĐ';
+}
+
+function formatDay(amount) {
+    return amount.toLocaleString('vi-VN') + 'VNĐ';
+}
 </script>
