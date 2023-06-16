@@ -39,8 +39,9 @@ public class CreateDayLeaveServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String button = request.getParameter("Create");
+        String button = request.getParameter("btnAction");
         if (button.equals("Create")) {
+            
             String title = request.getParameter("txtTitle");
             String type = request.getParameter("txtType");
             String description = request.getParameter("txtDescr");
