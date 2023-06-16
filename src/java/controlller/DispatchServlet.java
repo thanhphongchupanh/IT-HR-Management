@@ -40,7 +40,11 @@ public class DispatchServlet extends HttpServlet {
     private static final String SENT_DAY_LEAVE_CONTROLLER = "SentDayLeaveServlet";
     private static final String USER_INFO_CONTROLLER = "UserInfoServlet";
     private static final String REPORT_CONTROLLER = "ReportServlet";
+<<<<<<< HEAD
     private static final String REPORT_DETAIL_CONTROLLER = "ViewReportServlet";   
+=======
+    private static final String REPORT_DETAIL_CONTROLLER = "ViewReportServlet";
+>>>>>>> quan
     private static final String TIMEKEEPING_CONTROLLER = "TimekeepingServlet";
     private static final String SEARCH_TIMEKEEPING_CONTROLLER = "SearchDateTimekeepingServlet";
     private static final String TIMEKEEPING_DETAIL_CONTROLLER = "TimekeepingDetailServlet";
@@ -76,8 +80,11 @@ public class DispatchServlet extends HttpServlet {
                 case "staffDetail":
                     url = STAFF_DETAIL_CONTROLLER;
                     break;
-//                case "AccountList":
-//                    url = ACCOUNT_LIST_PAGE;
+                case "Staff":
+                    url = "StaffListController";
+                    break;
+//                case "ShowOverTimeList":
+//                    url = "";
 //                    break;
                 case "forgot":
                     url = FORGOT_CONTROLLER;
@@ -128,8 +135,14 @@ public class DispatchServlet extends HttpServlet {
                     url = REPORT_CONTROLLER;
                     break;
                 case "ViewReport":
+<<<<<<< HEAD
                     url = REPORT_DETAIL_CONTROLLER;         
                  case "Timekeeping":
+=======
+                    url = REPORT_DETAIL_CONTROLLER;
+                    break;
+                case "Timekeeping":
+>>>>>>> quan
                     url = TIMEKEEPING_CONTROLLER;
                     break;
                 case "SearchMonth":
@@ -141,6 +154,15 @@ public class DispatchServlet extends HttpServlet {
                 case "timekeepingDetail2":
                     url = TIMEKEEPING_DETAIL_2_CONTROLLER;
                     break;
+<<<<<<< HEAD
+=======
+                case "Salary":
+                    url = "SalaryListServlet";
+                    break;
+                case "SalaryDetail":
+                    url = "SalaryDetailServlet";
+                    break;
+>>>>>>> quan
             }
         } catch (Exception e) {
         } finally {
