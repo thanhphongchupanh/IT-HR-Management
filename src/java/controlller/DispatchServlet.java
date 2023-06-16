@@ -46,7 +46,7 @@ public class DispatchServlet extends HttpServlet {
     private static final String SEARCH_TIMEKEEPING_CONTROLLER = "SearchDateTimekeepingServlet";
     private static final String TIMEKEEPING_DETAIL_CONTROLLER = "TimekeepingDetailServlet";
     private static final String TIMEKEEPING_DETAIL_2_CONTROLLER = "TimekeepingDetail";
-     private static final String UPDATE_USER_INFO_CONTROLLER = "UpdateUserInfoServlet";
+    private static final String UPDATE_USER_INFO_CONTROLLER = "UpdateUserInfoServlet";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
