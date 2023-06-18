@@ -11,3 +11,12 @@
     position: relative;
     display: inline-block;
 }
+#datepickerId::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background-image: url("../assets/icons/calenda.svg") no-repeat;
+    width: 20px;
+    height: 20px;
+    border-width: thin;
+}
