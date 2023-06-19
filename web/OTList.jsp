@@ -31,7 +31,7 @@
                     <br>
                     <div class="flex justify-between my-5">
                         <form action="DispatchServlet" class="flex gap-3">
-                            <select name="monthparam" onchange="toggleButton(this)" class="rounded-md p-1 cursor-pointer">
+                            <select name="monthparam" onchange="toggleButton(this)" class="rounded-md p-1 cursor-pointer" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
                                 <option value="" disabled selected>Select A Month</option>
                                 <option value="01">January</option>
                                 <option value="02">February</option>

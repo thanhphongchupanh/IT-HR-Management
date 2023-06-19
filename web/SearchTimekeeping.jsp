@@ -19,18 +19,32 @@
             response.sendRedirect("/HRManagement"); } 
         %>
         <%@include file="/Layout/Sidebar.jsp" %>
+        <script>
+            function back() {
+                window.location.href = "/HRManagement/DispatchServlet?btnAction=Timekeeping";
+            }
+        </script>
 
         <section class="pt-5 pl-1 sm:ml-64">
             <div class="mt-14 rounded-lg overflow-hidden">
                 <div class="m-10 p-10 rounded-lg bg-[#82cfef10] w-2/3 mx-auto"
                     style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"
                 >
-                    <h1 class="text-center text-3xl font-bold mb-10">Timekeeping</h1>
+                    <button onclick="back()" class="flex gap-2 items-center py-1 px-3 text-red-500 mt-5
+                        hover:scale-105 hover:bg-[#dc354530] transition-all rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z" />
+                        </svg>
+                        Back
+                    </button>
+                    <h1 class="text-center text-3xl font-bold mb-10">Timekeeping <span class="text-teal-500">- Filtered</span></h1>
                     <c:set var="Date" value="${requestScope.MONTH}"/>
                     <c:set var="resultDate" value="${requestScope.SEARCH_DATE}"/>
                     
                     <form action="DispatchServlet" class="flex gap-3">
-                        <select name="Month" onchange="toggleButton(this)" class="rounded-md p-1 cursor-pointer">
+                        <select name="Month" onchange="toggleButton(this)" class="rounded-md p-1 cursor-pointer" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
                             <option value="" disabled selected>Month: ${Date}</option>
                             <option value="01">January</option>
                             <option value="02">February</option>
