@@ -1,12 +1,9 @@
-<%-- 
-    Document : OTList 
-    Created on : May 23, 2023, 7:35:28 PM 
-    Author : 23030 
---%>
+
 
 <%@page import="model.DAO.OvertimeDAO" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,7 +28,7 @@
                     <br>
                     <div class="flex justify-between my-5">
                         <form action="DispatchServlet" class="flex gap-3">
-                            <select name="monthparam" onchange="toggleButton(this)" class="rounded-md p-1 cursor-pointer">
+                            <select name="monthparam" onchange="toggleButton(this)" class="rounded-md p-1 cursor-pointer" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
                                 <option value="" disabled selected>Select A Month</option>
                                 <option value="01">January</option>
                                 <option value="02">February</option>
