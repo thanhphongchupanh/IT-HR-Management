@@ -41,7 +41,12 @@ public class CreateHrApplicationServlet extends HttpServlet {
         String title = request.getParameter("txtTitle");
         String type = request.getParameter("txtType");
         String description = request.getParameter("txtDescr");
-
+        int presentDay = Integer.parseInt(request.getParameter("presentDays"));
+        int absentDay = Integer.parseInt(request.getParameter("AbsentDays"));
+        int lateDay = Integer.parseInt(request.getParameter("LateDays"));
+        int overtimeDay = Integer.parseInt(request.getParameter("OvertimeDays"));
+        String employeeName = request.getParameter("txtEmployeeName");
+        
         HttpSession session = request.getSession();
         UserDto userDTO = (UserDto) session.getAttribute("user");
         String username = userDTO.getUsername();
@@ -65,7 +70,8 @@ public class CreateHrApplicationServlet extends HttpServlet {
         String url = CREATE_LEAVE_DAY_PAGE;
         try {
             StaffDao dao = new StaffDao();
-            boolean check = dao.insertLeaveReport(ranID, title, description, dateCreate, username, type);
+            boolean check = dao.insertHRLeaveReport(ranID, title, description, dateCreate,
+                    username, type, employeeName, presentDay, absentDay, lateDay, overtimeDay);
             if (check) {
                 url = "DispatchServlet?btnAction=CreateApplication";
             }

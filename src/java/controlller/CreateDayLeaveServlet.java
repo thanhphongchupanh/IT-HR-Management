@@ -64,7 +64,7 @@ public class CreateDayLeaveServlet extends HttpServlet {
 
             // Lấy ID 
             Random random = new Random();
-            int ranID = random.nextInt(50);
+            int ranID = random.nextInt(500);
 
             String url = CREATE_LEAVE_DAY_PAGE;
             try {

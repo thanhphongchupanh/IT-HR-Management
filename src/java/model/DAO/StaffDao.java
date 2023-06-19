@@ -52,7 +52,7 @@ public class StaffDao {
                     String departmetId = rs.getString("department_id");
                     boolean status = rs.getBoolean("status");
                     employeedto = new EmployeeDto(employeeId, departmentName, employeeName, null, phoneNumer, null, employeeName, phoneNumer, gender, departmentName, employeeName, employeeName, employeeName, departmentName, role, role, role, role, status);
-                    
+
                     if (this.staffList == null) {
                         this.staffList = new ArrayList<>();
                     }//end account List had NOT existed
@@ -216,7 +216,8 @@ public class StaffDao {
         return result;
     }
 
-    public boolean insertLeaveReport(int id, String title, String descr, String dateCreate, String username, String type) throws SQLException {
+    public boolean insertLeaveReport(int id, String title, String descr, String dateCreate,
+            String username, String type) throws SQLException {
         Connection conn = null;
         PreparedStatement stm = null;
         boolean result = false;
@@ -232,6 +233,46 @@ public class StaffDao {
                 stm.setString(4, dateCreate);
                 stm.setString(5, username);
                 stm.setString(6, type);
+                int effect = stm.executeUpdate();
+                if (effect > 0) {
+                    result = true;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return result;
+    }
+
+    public boolean insertHRLeaveReport(int id, String title, String descr, String dateCreate,
+            String username, String type, String name, int presentDay, int absentDay, int lateDay, int overtimeDay) throws SQLException {
+        Connection conn = null;
+        PreparedStatement stm = null;
+        boolean result = false;
+        try {
+            conn = DBHelper.makeConnection();
+            if (conn != null) {
+                String sql = "INSERT INTO [Application](application_id, application_title, application_description ,[date-created], username, application_type, employee_name, present_day, late_day, absent_day, overtime_day) "
+                        + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                stm = conn.prepareStatement(sql);
+                stm.setInt(1, id);
+                stm.setString(2, title);
+                stm.setString(3, descr);
+                stm.setString(4, dateCreate);
+                stm.setString(5, username);
+                stm.setString(6, type);
+                stm.setString(7, name);
+                stm.setInt(8, presentDay);
+                stm.setInt(9, lateDay);
+                stm.setInt(10, absentDay);
+                stm.setInt(11, overtimeDay);
                 int effect = stm.executeUpdate();
                 if (effect > 0) {
                     result = true;
@@ -289,7 +330,7 @@ public class StaffDao {
         }
         return result;
     }
-    
+
     private List<EmployeeDto> accountList;
 
     public List<EmployeeDto> getAccountList() {
@@ -321,7 +362,6 @@ public class StaffDao {
 
 //                    employeeDTO = new EmployeeDto(employeeId, department_id, employeeName, null, 0, null,
 //                            null, 0, true, "", employeeEmail, "", null, "", "", "", "");
-
                     if (this.accountList == null) {
                         this.accountList = new ArrayList<>();
                     }//
@@ -343,8 +383,7 @@ public class StaffDao {
         }
     }
 
-
-public List<EmployeeDto> getAccDetail(String name) throws SQLException {
+    public List<EmployeeDto> getAccDetail(String name) throws SQLException {
         List<EmployeeDto> AccList = null;
 
         Connection conn = null;
@@ -380,10 +419,10 @@ public List<EmployeeDto> getAccDetail(String name) throws SQLException {
 //                    
 //                    EmployeeDTO = new EmployeeDto(employeeId, department_id, employeeName, null, 0, datejoin,
 //                            null, 0, true, "", employeeEmail, "", null, department_name, roleName, username, "");
-                    
+
                     System.out.println("depart ID: " + department_id);
                     System.out.println("Depart Name: " + department_name);
-                    
+
                     if (AccList == null) {
                         AccList = new ArrayList<>();
                     }//
@@ -406,5 +445,38 @@ public List<EmployeeDto> getAccDetail(String name) throws SQLException {
         }
         return AccList;
     }
-    
+
+//    public int getApplicationID(String name) throws SQLException {
+//        Connection conn = null;
+//        PreparedStatement stm = null;
+//        ResultSet rs = null;
+//        int id = 0;
+//        try {
+//            conn = DBHelper.makeConnection();
+//            if (conn != null) {
+//                String sql = " ";
+//                stm = conn.prepareStatement(sql);
+//                stm.setString(1, name);
+//                rs = stm.executeQuery();
+//                while (rs.next()) {
+//                    String employeeId = rs.getString("employee_id");
+//
+//                }
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//            if (rs != null) {
+//                rs.close();
+//            }
+//            if (stm != null) {
+//                stm.close();
+//            }
+//            if (conn != null) {
+//                conn.close();
+//            }
+//        }
+//        return id;
+//    }
+
 }
