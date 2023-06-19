@@ -74,7 +74,7 @@
                                         <td class="px-3 py-3">
                                             ${dto.employee_name}
                                         </td>
-                                        <td class="px-2 py-3 rounded-r-[0.25rem]">
+                                        <td class="px-3 py-3 rounded-r-[0.25rem]">
                                             <c:url var="timekeepingDetail2" value="DispatchServlet">
                                                 <c:param name="btnAction" value="timekeepingDetail2" />
                                                 <c:param name="employeeName" value="${dto.employee_name}"/>
