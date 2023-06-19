@@ -23,12 +23,6 @@ body {
     border: 1px solid darkblue;
 }
 
-path {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    transition-duration: 1s;
-}
-
 .banner3 {
     transform: translateY(60px);
 }
@@ -40,7 +34,8 @@ path {
 }
 
 .careers .image {
-    width: 1000px;
+    width: 800px;
+    margin-right: 20px;
 }
 
 .careers-table {
