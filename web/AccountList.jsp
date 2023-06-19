@@ -56,7 +56,7 @@
                                             <td class="px-3 py-3">
                                                 ${dto.department_id}
                                             </td>
-                                            <td class="px-2 py-3 rounded-r-[0.25rem]">
+                                            <td class="px-3 py-3 rounded-r-[0.25rem]">
                                                 ${dto.employee_email}
                                             </td>
                                         </tr>
