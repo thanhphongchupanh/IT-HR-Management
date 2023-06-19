@@ -23,7 +23,7 @@
         <%@include file="/Layout/Sidebar.jsp" %>
         <section class="pt-5 pl-1 sm:ml-64">
             <div class="mt-14 rounded-lg overflow-hidden">
-                <div class="m-10 p-10 rounded-lg bg-[#977efa10]" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                <div class="m-10 p-10 rounded-lg bg-[#F8E8EE]" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                     <button onclick="history.back()" class="flex gap-2 items-center py-1 px-3 text-red-500 mt-5
                         hover:scale-105 hover:bg-[#dc354530] transition-all rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
