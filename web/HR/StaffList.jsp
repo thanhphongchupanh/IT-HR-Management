@@ -96,7 +96,7 @@
                                                     </p> 
                                                 </c:if>
                                             </td>
-                                            <td class="px-2 py-3 rounded-r-[0.25rem]">
+                                            <td class="px-3 py-3 rounded-r-[0.25rem]">
                                                 <div class="flex gap-1">
                                                     <a 
                                                         class="text-[#0d6efd] py-1 px-2 rounded-md font-medium 
